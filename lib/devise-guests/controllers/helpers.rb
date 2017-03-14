@@ -77,7 +77,7 @@ module DeviseGuests::Controllers
         end
 
         def guest_#{mapping}_unique_suffix
-          Devise.friendly_token + "_" + Time.now.to_i.to_s + "_" + unique_#{mapping}_counter.to_s
+          Devise.friendly_token + "_" + DateTime.now.strftime('%Q').to_s + "_" + unique_#{mapping}_counter.to_s
         end
 
         def unique_#{mapping}_counter
